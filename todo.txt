@@ -1,0 +1,7 @@
+To Do List
+    1. Choose Project Idea
+    2. Design Project on paper
+    3. Design a UI
+    4. Figure out what languages we want to use
+    5. Split up work
+    6. Start coding

@@ -1,0 +1,6 @@
+1. Goal Tracker/to do list
+    * A&M themed goals provided (go to football games, etc.)
+2. Spotify Game app
+    * Given two songs/artists and you choose who has more listens
+    * Eventually allows users to play based off of who they have listened to more
+    
