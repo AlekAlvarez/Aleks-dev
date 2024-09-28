@@ -1,12 +1,26 @@
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 public class Server{
-    public static void main(String[] args) throws UnknownHostException{
+    static ConcurrentLinkedQueue q;
+    public static void main(String[] args){
+        try{
         String ip=InetAddress.getLocalHost().getHostAddress();
+        ServerSocket server=new ServerSocket(443);
         while(true){
+            Socket client=server.accept();
 
         }
-        
+    }
+    catch(UnknownHostException e){
+        System.out.println("There is an issue with geting my IP");
+    }
+    catch(IOException e){
+        System.out.println("Issue with creating client");
+    }
+    catch(Exception e){
+        System.out.println(e.toString());
+    }
     }
 }
 class acceptThread implements Runnable{

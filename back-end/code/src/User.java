@@ -1,7 +1,8 @@
-public class User {
+public class User implements Comparable<User>{
     private String username, password, spotifyUsername, spotifyPassword;
     private long id;
     private int highScore;
+    //static int globalScore;?
 
     public User() {
         username = null;
@@ -27,6 +28,7 @@ public class User {
     public String getPassword() {
         return password;
     }
+    public int getHighScore() { return highScore; }
     public long getId() { return id; } //dont use for spotify users
     public void setUsername(String username) {
         this.username = username;
@@ -35,6 +37,21 @@ public class User {
         this.password = password;
     }
     public void setHighScore(int highScore) { this.highScore = highScore; }
+
+    //user-v-user/global comparisons?
+
+    @Override
+    public int compareTo(User user) {
+        return getHighScore()-(user.getHighScore()); //if return is negative, other has higher score
+    }
+    public int highestScore(User user) {
+        return Math.max(getHighScore(),user.getHighScore()); //returns highest score of the two
+    }
+
+
+    /***********************************/
+    /**** I LOVE STACK OVERFLOW!!!! ****/
+    /***********************************/
 
     @Override
     public int hashCode() {
