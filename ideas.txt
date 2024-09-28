@@ -4,6 +4,7 @@
     * Given two songs/artists and you choose who has more listens
     * Eventually allows users to play based off of who they have listened to more
     *utilizes spotify api
+    *College war hyms catagory
 3. Study app
     * Webapp for studying for specific test
     * will allow people to connect with people for specific test
