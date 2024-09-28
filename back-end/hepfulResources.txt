@@ -1,0 +1,2 @@
+1. https://www.youtube.com/watch?v=WAmEZBEeNmg&list=TLPQMjgwOTIwMjQb0rkuAayogA&index=1
+    *Shows how to set up Spotify API in python and how to use it to look up an artists
