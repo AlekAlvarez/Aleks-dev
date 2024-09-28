@@ -1,0 +1,36 @@
+body {
+    background-color: #99e2b4
+}
+
+#homeScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.containerHome {
+    text-align: center;
+    margin-top: -100px;
+}
+
+.containerHome h1 {
+    font-size: 200px;
+    margin-bottom: 10px;
+}
+
+.containerHome p {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.containerHome button {
+    border: 10px solid black;
+    border-radius: 20px;
+    background-color: #036666;
+    font-size: 50px;
+    color: white;
+    padding: 20px 30px;
+    outline: none;
+    margin-top: 25px;
+}

@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+#gameScreen {
+    position: relative;
+    height: 100vh;
+}
+
+#gameScreen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #218380;
+}
+
+#gameScreen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #8f2d56;
+}
+
+.divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 15px;
+    background-color: white;
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.scoreBox {
+    top:20px;
+    left: 20px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 250px;
+    z-index: 2;
+    height: auto;
+}
+
+.scoreBox h2 {
+    font-size: 30px;
+}
+
+.albumCovers {
+    margin: 0;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    box-sizing: border-box;
+}
+
+.imageLeft, .imageRight {
+    width: 50%; /* Each box takes up half the width of the container */
+    height: 200px; /* Fixed height for the boxes */
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    border: 2px solid #000; /* Border around the boxes */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.imageLeft {
+    background-color: #4CAF50; /* Green background for left box */
+    color: white; /* White text color */
+}
+
+.imageRight {
+    background-color: #2196F3; /* Blue background for right box */
+    color: white; /* White text color */
+}
