@@ -160,7 +160,7 @@ def college_songs():
     return jsonify(s)
 @app.route("/put_high_score",methods=['POST'])
 def put_high_score():
-    high_score=requests.data
+    high_score=requests.get_json().data["score"]
 @app.route("/get_high_score",methods=["GET"])
 def get_high():
     return jsonify(high_score)
