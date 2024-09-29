@@ -31,11 +31,10 @@ def login():
         'response_type': 'code',
         'scope': scope,
         'redirect_uri': REDIRECT_URL,
-        'show_dialog': False #Delete after you know its working
+        'show_dialog': True #Delete after you know its working
     }
 
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
-    print('hello world')
 
     return redirect(auth_url)
 
@@ -59,7 +58,7 @@ def callback():
         session['access_token'] = token_info['access_token']
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
-        return redirect('/playlists')
+        return redirect('/')
     
 @app.route('/playlists')
 def get_playlists():
@@ -89,7 +88,7 @@ def get_playlists():
     #Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
     song_info = json_result["tracks"]["items"][0]
     song = {
-        'name': song_info['name'],
+         'name': song_info['name'],
         'cover': song_info["album"]['images'][0]['url'],
         'artist': song_info['artists'][0]['name'],
         'pop': song_info['popularity'],
@@ -113,6 +112,7 @@ def refresh_token():
         }
 
         response = requests.post(TOKEN_URL, data=req_body)
+     
         new_token_info = response.json()
 
         session['access_token'] = new_token_info['access_token']
