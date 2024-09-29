@@ -166,11 +166,10 @@ body {
     border: 5px solid white;
     border-radius: 50%;
      /* Ensure transition for smooth rotation */
-     /*transition: transform 0.3s ease-in-out;*/
+     transition: transform 0.3s ease-in-out;
 }
 
 @-webkit-keyframes rotate {
-    transition: transform 0.3s ease-in-out;
     from {
         
         transform: translateY(-50%) rotate(0deg);
@@ -229,8 +228,3 @@ body {
     z-index: 2;
     
 }
-
-#box {
-    fill: black;
-    stroke: black;
-  }
