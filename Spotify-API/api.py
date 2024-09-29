@@ -51,7 +51,16 @@ def search_for_random_song(token):
     json_result = json.loads(result.content)
     #Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
     song_info = json_result["tracks"]["items"][0]
-    print(song_info["name"], song_info['popularity'])
+
+    song = {
+        'name': song_info['name'],
+        'cover': song_info["album"]['images'][0]['url'],
+        'artist': song_info['artists'][0]['name'],
+        'pop': song_info['popularity'],
+        'songClip': song_info['preview_url']
+    }
+    print(song)
+    return song
 
 token = get_token()
 search_for_random_song(token)

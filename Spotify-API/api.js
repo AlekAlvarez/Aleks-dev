@@ -3,10 +3,9 @@
 // axios - npm install axios
 
 import dotenv from 'dotenv'
-dotenv.config()
 import axios from 'axios'
 
-
+dotenv.config()
 // Gets Client ID & secret from .env file
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
@@ -47,7 +46,15 @@ async function searchForRandomSong(token) {
     // Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
     const songInfo = result.data.tracks.items[0];
     //songInfo.album.images[0].url (Example of how to grab image url)
-    return songInfo;
+    song = {
+        'name': songInfo.name,
+        'cover': songInfo.images[0].url,
+        'artist': songInfo.artists[0].name,
+        'pop': songInfo.popularity,
+        'songClip': songInfo.preview_url
+    }
+    console.log(song)
+    return song;
 }
 
 (async () => {
