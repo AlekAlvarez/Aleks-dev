@@ -83,21 +83,25 @@ function updateScreen(song1, song2) {
   const songAuthorRight = document.getElementById("songArtistRight");
 
   // Reset rotation before changing src
-  albumCoverLeft.style.transform = 'rotate(0deg)';
-  albumCoverRight.style.transform = 'rotate(0deg)';
+  albumCoverLeft.style.transform = 'none';
+  albumCoverRight.style.transform = 'none';
   
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
-  albumCoverLeft.src = song1.cover;
+  albumCoverLeft.setAttribute("src", song1.cover);
   
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
 
+  // Force a reflow to ensure the rotation starts fresh
+  albumCoverLeft.offsetHeight; // Trigger reflow
+  albumCoverRight.offsetHeight; // Trigger reflow
+
   setTimeout(() => {
-    albumCoverLeft.style.transform = 'rotate(45deg)'; // Example rotation
-    albumCoverRight.style.transform = 'rotate(-45deg)'; // Example rotation
-  }, 100); // Small delay to ensure image has changed
+    albumCoverLeft.style.transform = 'rotate(0deg)'; // Example rotation
+    albumCoverRight.style.transform = 'rotate(0deg)'; // Example rotation
+  }, 50); // Small delay to ensure image has changed
 }
 
 function checkAnswer(userGuess, otherOption){

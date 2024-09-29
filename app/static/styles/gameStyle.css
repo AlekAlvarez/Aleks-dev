@@ -160,6 +160,8 @@ body {
     z-index: 2;
     border: 5px solid white;
     border-radius: 50%;
+     /* Ensure transition for smooth rotation */
+     transition: transform 0.3s ease-in-out;
 }
 
 @-webkit-keyframes rotate {
