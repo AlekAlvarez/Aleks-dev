@@ -9,10 +9,24 @@
 
 
 
+async function getSong() {
+    const url = "http://localhost:5000/playlists";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.json();
+      return json
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  
 
 
-
-function playGame () {
+async function playGame () {
     //Startup Processes
     /*
     1. Get 2 songs (must have different popularity scores)
@@ -20,7 +34,7 @@ function playGame () {
     */
    let gameOver = false
    
-   let song1 = getSong(); //Get song 2
+   let song1 = await getSong(); //Get song 2
    let song2 = getSong(); //Get song 2
 
    while(gameOver == false) {
