@@ -83,6 +83,10 @@ function updateScreen(song1, song2) {
   const albumCoverRight = document.getElementById("rightAlbumCover");
   const songTitleRight = document.getElementById("songNameRight");
   const songAuthorRight = document.getElementById("songArtistRight");
+
+  // Reset rotation before changing src
+  albumCoverLeft.style.transform = 'rotate(0deg)';
+  albumCoverRight.style.transform = 'rotate(0deg)';
   
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
@@ -91,6 +95,11 @@ function updateScreen(song1, song2) {
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
+
+  setTimeout(() => {
+    albumCoverLeft.style.transform = 'rotate(45deg)'; // Example rotation
+    albumCoverRight.style.transform = 'rotate(-45deg)'; // Example rotation
+  }, 100); // Small delay to ensure image has changed
 }
 
 function checkAnswer(userGuess, otherOption){
