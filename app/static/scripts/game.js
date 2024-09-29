@@ -83,3 +83,13 @@ function checkAnswer(userGuess, otherOption){
   }
   
 }
+leftChoice=false;
+rightChoice=false;
+left=document.getElementById("leftHover")
+right=document.getElementById("rightHover")
+left.addEventListener("click",()=>{
+    leftChoice=true;
+});
+right.addEventListener("click",()=>{
+    rightChoice=true;
+});
