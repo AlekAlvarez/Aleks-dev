@@ -2,7 +2,8 @@ import requests
 import urllib.parse
 
 from datetime import datetime, timedelta
-from flask import Flask, redirect, request, jsonify, session
+from flask import Flask, redirect, request, jsonify, session, render_template
+from random import randint, choice
 
 app = Flask(__name__)
 app.secret_key = "53d355f8-571a-490-a310-1f9579440851"
@@ -19,7 +20,7 @@ API_BASE_URL = 'https://api.spotify.com/v1'
 @app.route('/')
 def index():
     #Flask load example
-    return "Welcome to my Spotify App <a href='login'>Login with Spotify</a>"
+    return render_template('')
 
 @app.route('/login')
 def login():
@@ -40,14 +41,10 @@ def login():
 
 @app.route('/callback')
 def callback():
-    print('Hello We hit callback')
     if 'error' in request.args:
-        print('We got an error. Oh no')
         return jsonify({"error": request.args['error']})
     
     if 'code' in request.args:
-        print('It apparently works.')
-        print(request.args)
         req_body = {
             'code': request.args['code'],
             'grant_type': "authorization_code",
@@ -58,7 +55,6 @@ def callback():
 
         response = requests.post(TOKEN_URL, data=req_body)
         token_info = response.json()
-        print(token_info)
         
         session['access_token'] = token_info['access_token']
         session['refresh_token'] = token_info['refresh_token']
@@ -77,10 +73,31 @@ def get_playlists():
         'Authorization': f"Bearer {session['access_token']}"
     }
 
-    response = requests.get(API_BASE_URL + 'me/playlists', headers=headers)
-    playlists = response.json()
+    #response = requests.get(API_BASE_URL + 'me/playlists', headers=headers)
+    #playlists = response.json()
 
-    return jsonify(playlists)
+        #Searches a random letter
+    search_term = choice('abcdefghijklmnopqrstuvwxyz')
+    #This randomizes which search result we get
+    offset = randint(0, 50)
+    url = "https://api.spotify.com/v1/search"
+    query = f"?q={search_term}&type=track&limit=1&offset={offset}"
+
+    query_url = url + query
+    result = requests.get(query_url, headers=headers)
+    json_result = result.json()
+    #Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
+    song_info = json_result["tracks"]["items"][0]
+    song = {
+        'name': song_info['name'],
+        'cover': song_info["album"]['images'][0]['url'],
+        'artist': song_info['artists'][0]['name'],
+        'pop': song_info['popularity'],
+        'songClip': song_info['preview_url']
+    }
+    print(song)
+
+    return jsonify(song)
 
 @app.route('/refresh-token')
 def refresh_token():
