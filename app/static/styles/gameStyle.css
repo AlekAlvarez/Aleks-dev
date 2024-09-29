@@ -62,7 +62,11 @@ body {
 }
 
 .circle h1 {
-    font-size: 100px;
+    font-size: 120px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
 }
 
@@ -74,6 +78,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: space-between;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
 }
 
 .songName, .songArtist, .popularityScore {
@@ -93,6 +99,7 @@ body {
 
 .popularityScore {
     display: none;
+    
 }
 
 .gameQuestion {
@@ -108,6 +115,10 @@ body {
 }
 
 .gameQuestion h2 {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     font-size: 40px;
 }
 
@@ -185,6 +196,10 @@ body {
     padding-right: 30px;
     box-sizing: border-box;
     font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+
 }
 
 .highScore, .currentScore {
@@ -192,6 +207,7 @@ body {
     padding: 3px 10px;
     border-radius: 5px;
     background-color: #f0f0f0;
+
 }
 
 .highScore {
@@ -201,4 +217,10 @@ body {
 .currentScore {
     margin-right: 10px;
     z-index: 2;
+    
 }
+
+#box {
+    fill: black;
+    stroke: black;
+  }

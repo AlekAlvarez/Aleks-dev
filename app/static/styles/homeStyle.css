@@ -50,6 +50,7 @@ body {
 }
 
 .containerHome button {
+    top: -20px;
     border: 10px;
     border-color: white;
     border-radius: 20px;

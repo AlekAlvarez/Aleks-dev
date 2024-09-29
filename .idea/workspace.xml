@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f2b9fd6-eca3-4ade-846a-82e1316165d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end/game/gameStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/game/gameStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/home/home.html" afterDir="false" />
-    </list>
+    <list default="true" id="6f2b9fd6-eca3-4ade-846a-82e1316165d9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
