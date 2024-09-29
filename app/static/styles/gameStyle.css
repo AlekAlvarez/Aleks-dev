@@ -111,6 +111,17 @@ body {
     font-size: 40px;
 }
 
+/* Brighten and dim effect for the entire side */
+.leftHover:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2);
+}
+
+.rightHover:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2);
+}
+
 
 .leftHover, .rightHover {
     position: absolute;
@@ -148,19 +159,12 @@ body {
     }
 }
 
-/* .leftHover:hover ~ .containerImages .leftImg,
-.rightHover:hover ~ .containerImages .rightImg {
-    animation: rotate 3s linear infinite;
-} */
-
-/* Ensure album covers spin when the cursor is over the hover area or the images themselves */
 .leftHover:hover ~ .containerImages .leftImg,
 .rightHover:hover ~ .containerImages .rightImg,
 .leftImg:hover,
 .rightImg:hover {
     animation: rotate 3s linear infinite;
 }
-
 
 .leftImg {
     left: 10%;
