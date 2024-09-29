@@ -139,7 +139,6 @@ body {
 }
 
 /* Brighten and dim effect for the entire side */
-/*
 .leftHover:hover {
     background-color: rgba(255, 255, 255, 0.2);
     filter: brightness(1.2);
@@ -166,7 +165,7 @@ body {
 .rightHover {
     right: 0;
 }
-*/
+
 .albumCovers {
     position: absolute;
     width: 375px;
