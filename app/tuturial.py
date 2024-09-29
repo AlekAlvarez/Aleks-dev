@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from flask import Flask, redirect, request, jsonify, session, render_template
 from random import randint, choice
 
+
 app = Flask(__name__,template_folder="./templates")
 app.secret_key = "53d355f8-571a-490-a310-1f9579440851"
 
@@ -36,9 +37,7 @@ def login():
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
 
     return redirect(auth_url)
-@app.route("/loggedin")
-def loggedIn():
-    return loggedIn
+
 @app.route('/callback')
 def callback():
     if 'error' in request.args:
@@ -117,6 +116,7 @@ def refresh_token():
         session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
 
         return redirect('/playlists')
+
 @app.route("/college-songs")
 def college_songs():
     if 'access_token' not in session:

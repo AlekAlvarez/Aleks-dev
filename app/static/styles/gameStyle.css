@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
 }
-
+.containerImages{
+    width:544px;
+    height:544px;
+    border-radius: 50%;
+}
 body {
     margin: 0;
     height: 100vh;
@@ -124,6 +128,7 @@ body {
 }
 
 /* Brighten and dim effect for the entire side */
+/*
 .leftHover:hover {
     background-color: rgba(255, 255, 255, 0.2);
     filter: brightness(1.2);
@@ -150,7 +155,7 @@ body {
 .rightHover {
     right: 0;
 }
-
+*/
 .albumCovers {
     position: absolute;
     width: 375px;
@@ -161,11 +166,13 @@ body {
     border: 5px solid white;
     border-radius: 50%;
      /* Ensure transition for smooth rotation */
-     transition: transform 0.3s ease-in-out;
+     /*transition: transform 0.3s ease-in-out;*/
 }
 
 @-webkit-keyframes rotate {
+    transition: transform 0.3s ease-in-out;
     from {
+        
         transform: translateY(-50%) rotate(0deg);
     }
     to {
