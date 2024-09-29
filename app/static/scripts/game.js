@@ -19,6 +19,20 @@ async function main() {
       song2 = await getSong();
     }
     updateScreen(song1, song2);
+    //Check for mouse on left AlbumCover
+    document.getElementById('leftAlbumCover').addEventListener('mouseover', () => {
+      evalSound(0);
+    })
+    document.getElementById('leftAlbumCover').addEventListener("mouseout", () => {
+      stopSound(0);
+    })
+     //Check for mouse on right AlbumCover
+     document.getElementById('rightAlbumCover').addEventListener('mouseover', () => {
+      evalSound(1);
+    })
+    document.getElementById('rightAlbumCover').addEventListener("mouseout", () => {
+      stopSound(1);
+    })
     console.log(song1.pop, song2.pop);
 
     const event = await waitForClick();
@@ -77,21 +91,25 @@ function updateScreen(song1, song2) {
   const albumCoverLeft = document.getElementById("leftAlbumCover");
   const songTitleLeft = document.getElementById("songNameLeft");
   const songAuthorLeft = document.getElementById("songArtistLeft");
+  const songAudioLeft = document.getElementById("leftAudio")
 
   const albumCoverRight = document.getElementById("rightAlbumCover");
   const songTitleRight = document.getElementById("songNameRight");
   const songAuthorRight = document.getElementById("songArtistRight");
   const currentScore=document.getElementById("current-score");
+  const songAudioRight = document.getElementById("rightAudio")
   const currentRound = document.getElementById("levelCounter");
   
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
   albumCoverLeft.setAttribute("src", song1.cover);
+  songAudioLeft.setAttribute("src", song1.songClip);
   currentScore.innerText=counter;
   levelCounter.innerText=counter+1;
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
+  songAudioRight.setAttribute("src", song2.songClip);
 }
 
 function checkAnswer(userGuess, otherOption){
@@ -112,4 +130,24 @@ function waitForClick() {
           resolve(event);
       }, { once: true }); // once: true ensures the event listener is removed after one click
   });
+}
+
+// Set up for playing sound on hover
+function evalSound(soundobj) {
+  if (soundobj) {
+    soundobj = document.getElementById('rightAudio');
+  } else {
+    soundobj = document.getElementById('leftAudio');
+  }
+  soundobj.currentTime = 0;  
+  soundobj.play();
+}
+
+function stopSound(soundobj) {
+  if (soundobj) {
+    soundobj = document.getElementById('rightAudio');
+  } else {
+    soundobj = document.getElementById('leftAudio');
+  }
+  soundobj.Stop();
 }

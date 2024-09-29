@@ -129,6 +129,7 @@ def loser():
 @app.route('/play-again')
 def play_again ():
     return render_template('game.html')
+
 @app.route("/college-songs")
 def college_songs():
     if 'access_token' not in session:
