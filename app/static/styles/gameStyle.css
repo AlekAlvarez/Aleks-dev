@@ -148,7 +148,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
-    padding: 20px 40px;
+    padding: 10px 20px;
     border-radius: 5px;
     z-index: 3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -159,7 +159,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-size: 25px;
+    font-size: 15px;
+    text-align: center;
 }
 
 /* Brighten and dim effect for the entire side */
