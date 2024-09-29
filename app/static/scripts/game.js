@@ -86,7 +86,7 @@ function updateScreen(song1, song2) {
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
   albumCoverLeft.setAttribute("src", song1.cover);
-  
+  currentScore.innerText=counter;
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
