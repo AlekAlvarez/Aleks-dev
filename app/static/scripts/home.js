@@ -3,13 +3,12 @@
 var login=false;
 document.addEventListener("DOMContentLoaded", function() {
     const startButton = document.getElementById("startButton"); // Use your button's ID
-    startButton.addEventListener("click", function() {
+    startButton.addEventListener("click", async function() {
+        //login =await fetch('/loggedin');
+      //  console.log(login)
         if(!login){
-        login=true;
+        //login=true;
         window.location.href="/login"
-        }
-        else{
-            window.location.href="../../templates/game.html"
         }
     });
 });

@@ -15,8 +15,7 @@ REDIRECT_URL = 'http://localhost:5000/callback'
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1'
-
-
+login=False
 @app.route('/')
 def index():
     #Flask load example
@@ -33,11 +32,13 @@ def login():
         'redirect_uri': REDIRECT_URL,
         'show_dialog': True #Delete after you know its working
     }
-
+    loggedIn=True
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
 
     return redirect(auth_url)
-
+@app.route("/loggedin")
+def loggedIn():
+    return loggedIn
 @app.route('/callback')
 def callback():
     if 'error' in request.args:
@@ -58,7 +59,7 @@ def callback():
         session['access_token'] = token_info['access_token']
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
-        return redirect('/')
+        return render_template("./game.html")
     
 @app.route('/playlists')
 def get_playlists():
