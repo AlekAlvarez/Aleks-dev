@@ -141,12 +141,14 @@ def college_songs():
     headers = {
         'Authorization': f"Bearer {session['access_token']}"
     }
-    url = "https://api.spotify.com/v1/albums/0lI2kTmpOQzgIJzFu5MGel?si=Nm52RWuyQyCSsGfuI0Os8A/tracks"
+    url = "https://api.spotify.com/v1/albums/0lI2kTmpOQzgIJzFu5MGel?si=Nm52RWuyQyCSsGfuI0Os8A/"
     result = requests.get(url, headers=headers)
     json_result = result.json()
-    tracks=json_result["total"]
-    song=randint(tracks)
-    songs=json_result["items"][song]
+    tracks=json_result["total_tracks"]
+    song=randint(0,tracks)
+    son=json_result["tracks"]["items"][song]["href"]
+    songs = requests.get(son, headers=headers).json()
+     
     s = {
         'name': songs['name'],
         'cover': songs["album"]['images'][0]['url'],
@@ -156,11 +158,11 @@ def college_songs():
     }
     print(s)
     return jsonify(s)
-@app.route("/high_score",methods=['POST'])
-def high_score():
+@app.route("/put_high_score",methods=['POST'])
+def put_high_score():
     high_score=requests.data
-@app.route("/high_score",methods=["GET"])
+@app.route("/get_high_score",methods=["GET"])
 def get_high():
-    return high_score
+    return jsonify(high_score)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

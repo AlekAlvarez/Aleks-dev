@@ -107,10 +107,14 @@ body {
 
 .songNameLeft, .songArtistLeft, .popularityScoreLeft {
     text-align: left;
+    width: 50%;
+    overflow: hidden;
 }
 
 .songNameRight, .songArtistRight, .popularityScoreRight {
     text-align: right;
+    width: 50%;
+    overflow: hidden;
 }
 
 .popularityScore {
@@ -136,6 +140,27 @@ body {
     font-weight: 400;
     font-style: normal;
     font-size: 40px;
+}
+
+.gameNote {
+    position: absolute;
+    top: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.gameNote h2 {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
 }
 
 /* Brighten and dim effect for the entire side */
@@ -217,7 +242,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
-
+    overflow: hidden;
 }
 
 .highScore, .currentScore {
