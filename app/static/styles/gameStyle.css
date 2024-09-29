@@ -163,6 +163,14 @@ body {
     text-align: center;
 }
 
+.fightSongs {
+    position: absolute;
+    top: 550px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
 /* Brighten and dim effect for the entire side */
 /* .leftHover:hover {
     background-color: rgba(255, 255, 255, 0.2);
