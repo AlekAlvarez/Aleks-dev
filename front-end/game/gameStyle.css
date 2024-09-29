@@ -36,6 +36,7 @@ body {
     width: 15px;
     background-color: white;
     z-index: 1;
+    transform: translateX(-50%);
 }
 
 .circle {
@@ -51,21 +52,32 @@ body {
 }
 
 .scoreBox {
-    top:20px;
-    left: 20px;
-    position: absolute;
+    position: fixed;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 5px;
+    padding: 5px 10px;
     border: 2px solid white;
     border-radius: 5px;
     width: 250px;
     z-index: 2;
-    height: auto;
+}
+
+.high-score {
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;
+}
+
+.current-score {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 .scoreBox h2 {
     font-size: 30px;
+    margin: 0;
 }
+
 
 .albumCovers {
     position: absolute;
