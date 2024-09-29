@@ -89,7 +89,7 @@ def get_playlists():
     #Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
     song_info = json_result["tracks"]["items"][0]
     song = {
-        'name': song_info['name'],
+         'name': song_info['name'],
         'cover': song_info["album"]['images'][0]['url'],
         'artist': song_info['artists'][0]['name'],
         'pop': song_info['popularity'],
@@ -113,6 +113,7 @@ def refresh_token():
         }
 
         response = requests.post(TOKEN_URL, data=req_body)
+     
         new_token_info = response.json()
 
         session['access_token'] = new_token_info['access_token']
