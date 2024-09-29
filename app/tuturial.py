@@ -118,6 +118,13 @@ def refresh_token():
 
         return redirect('/playlists')
 
+@app.route('/loser')
+def loser():
+    return render_template('lose.html')
+
+@app.route('/play-again')
+def play_again ():
+    return render_template('game.html')
 @app.route("/college-songs")
 def college_songs():
     if 'access_token' not in session:

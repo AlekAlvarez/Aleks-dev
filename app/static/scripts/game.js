@@ -38,7 +38,7 @@ async function main() {
       gameOver = false
     } else {
       gameOver = true
-      window.location.href="../../templates/lose.html";
+      window.location.href="/loser";
     }
   }
 
