@@ -53,12 +53,12 @@ class listenThread implements Runnable{
     }
 }
 class talkThread implements Runnable{
-    ObjectOutputStream pr;
+    PrintWriter pr;
     public void run(){
         while(true){
             while(!Server.talking.isEmpty()){
                 HashMap<List,Socket> o=Server.talking.poll();
-                
+
             }
         }
     }
