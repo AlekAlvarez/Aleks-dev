@@ -81,7 +81,7 @@ function updateScreen(song1, song2) {
   const albumCoverRight = document.getElementById("rightAlbumCover");
   const songTitleRight = document.getElementById("songNameRight");
   const songAuthorRight = document.getElementById("songArtistRight");
-
+  const currentScore=document.getElementById("current-score");
   // Reset rotation before changing src
   albumCoverLeft.style.transform = 'rotate(0deg)';
   albumCoverRight.style.transform = 'rotate(0deg)';
@@ -93,7 +93,7 @@ function updateScreen(song1, song2) {
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
-
+  currentScore.innerText=counter;
   setTimeout(() => {
     albumCoverLeft.style.transform = 'rotate(45deg)'; // Example rotation
     albumCoverRight.style.transform = 'rotate(-45deg)'; // Example rotation
