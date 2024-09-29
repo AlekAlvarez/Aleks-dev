@@ -25,9 +25,11 @@ body {
 }
 
 .restartButton {
-    padding-top: 50px;
-    width: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100px;
     background-color: #88d4ab;
     color: white;
     font-weight: bold;
+    font-size: 30px;
 }
