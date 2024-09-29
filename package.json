@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "axois": "^0.0.1-security",
-    "dotenv": "^16.4.5"
+    "datetime": "^0.0.3",
+    "dotenv": "^16.4.5",
+    "flask": "^0.2.10",
+    "requests": "^0.3.0",
+    "urllib": "^4.3.1"
   }
 }
