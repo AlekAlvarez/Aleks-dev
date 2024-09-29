@@ -19,6 +19,20 @@ async function main() {
       song2 = await getSong();
     }
     updateScreen(song1, song2);
+    //Check for mouse on left AlbumCover
+    document.getElementById('leftAlbumCover').addEventListener('mouseover', () => {
+      evalSound(0);
+    })
+    document.getElementById('leftAlbumCover').addEventListener("mouseout", () => {
+      stopSound(0);
+    })
+     //Check for mouse on right AlbumCover
+     document.getElementById('rightAlbumCover').addEventListener('mouseover', () => {
+      evalSound(1);
+    })
+    document.getElementById('rightAlbumCover').addEventListener("mouseout", () => {
+      stopSound(1);
+    })
     console.log(song1.pop, song2.pop);
 
     const event = await waitForClick();
@@ -88,12 +102,12 @@ function updateScreen(song1, song2) {
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
   albumCoverLeft.setAttribute("src", song1.cover);
-  songAudioLeft.setAttribute("src", song1.songclip);
+  songAudioLeft.setAttribute("src", song1.songClip);
   currentScore.innerText=counter;
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
-  songAudioRight.setAttribute("src", song2.songclip);
+  songAudioRight.setAttribute("src", song2.songClip);
 }
 
 function checkAnswer(userGuess, otherOption){
@@ -116,18 +130,22 @@ function waitForClick() {
   });
 }
 
-document.getElementById('leftAlbumCover').addEventListener('mouseover', () => {
-  evalSound(document.getelementbyID('leftAudio'));
-})
-document.getElementById('leftAlbumCover').addEventListener("mouseout", () => {
-  stopSound(document.getelementbyID('leftAudio'));
-})
 // Set up for playing sound on hover
 function evalSound(soundobj) {
+  if (soundobj) {
+    soundobj = document.getElementById('rightAudio');
+  } else {
+    soundobj = document.getElementById('leftAudio');
+  }
   soundobj.currentTime = 0;  
-  soundobj.Play();
+  soundobj.play();
 }
 
 function stopSound(soundobj) {
+  if (soundobj) {
+    soundobj = document.getElementById('rightAudio');
+  } else {
+    soundobj = document.getElementById('leftAudio');
+  }
   soundobj.Stop();
 }
