@@ -74,6 +74,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: space-between;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
 }
 
 .songName, .songArtist, .popularityScore {
