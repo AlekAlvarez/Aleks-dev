@@ -21,17 +21,17 @@ async function main() {
     updateScreen(song1, song2);
     //Check for mouse on left AlbumCover
     document.getElementById('leftAlbumCover').addEventListener('mouseover', () => {
-      evalSound(0);
+      evalSound(0, song1);
     })
     document.getElementById('leftAlbumCover').addEventListener("mouseout", () => {
-      stopSound(0);
+      stopSound(0, song1);
     })
      //Check for mouse on right AlbumCover
      document.getElementById('rightAlbumCover').addEventListener('mouseover', () => {
-      evalSound(1);
+      evalSound(1,song2);
     })
     document.getElementById('rightAlbumCover').addEventListener("mouseout", () => {
-      stopSound(1);
+      stopSound(1,song2);
     })
     console.log(song1.pop, song2.pop);
 
@@ -134,11 +134,13 @@ function waitForClick() {
 }
 
 // Set up for playing sound on hover
-function evalSound(soundobj) {
+function evalSound(soundobj, song) {
   if (soundobj) {
     soundobj = document.getElementById('rightAudio');
+    soundobj.setAttribute('src', song.songClip);
   } else {
     soundobj = document.getElementById('leftAudio');
+    soundobj.setAttribute('src', song.songClip);
   }
   soundobj.currentTime = 0;  
   soundobj.play();
@@ -147,8 +149,10 @@ function evalSound(soundobj) {
 function stopSound(soundobj) {
   if (soundobj) {
     soundobj = document.getElementById('rightAudio');
+    soundobj.setAttribute('src', '');
   } else {
     soundobj = document.getElementById('leftAudio');
+    soundobj.setAttribute('src', '');
   }
-  soundobj.stop();
+  //soundobj.stop();
 }
