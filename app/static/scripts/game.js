@@ -77,19 +77,23 @@ function updateScreen(song1, song2) {
   const albumCoverLeft = document.getElementById("leftAlbumCover");
   const songTitleLeft = document.getElementById("songNameLeft");
   const songAuthorLeft = document.getElementById("songArtistLeft");
+  const songAudioLeft = document.getElementById("leftAudio")
 
   const albumCoverRight = document.getElementById("rightAlbumCover");
   const songTitleRight = document.getElementById("songNameRight");
   const songAuthorRight = document.getElementById("songArtistRight");
   const currentScore=document.getElementById("current-score");
+  const songAudioRight = document.getElementById("rightAudio")
   
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
   albumCoverLeft.setAttribute("src", song1.cover);
+  songAudioLeft.setAttribute("src", song1.songclip);
   currentScore.innerText=counter;
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
+  songAudioRight.setAttribute("src", song2.songclip);
 }
 
 function checkAnswer(userGuess, otherOption){
@@ -110,4 +114,20 @@ function waitForClick() {
           resolve(event);
       }, { once: true }); // once: true ensures the event listener is removed after one click
   });
+}
+
+document.getElementById('leftAlbumCover').addEventListener('mouseover', () => {
+  evalSound(document.getelementbyID('leftAudio'));
+})
+document.getElementById('leftAlbumCover').addEventListener("mouseout", () => {
+  stopSound(document.getelementbyID('leftAudio'));
+})
+// Set up for playing sound on hover
+function evalSound(soundobj) {
+  soundobj.currentTime = 0;  
+  soundobj.Play();
+}
+
+function stopSound(soundobj) {
+  soundobj.Stop();
 }
