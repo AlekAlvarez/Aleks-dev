@@ -37,9 +37,7 @@ def login():
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
 
     return redirect(auth_url)
-@app.route("/loggedin")
-def loggedIn():
-    return loggedIn
+
 @app.route('/callback')
 def callback():
     if 'error' in request.args:
