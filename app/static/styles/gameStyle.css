@@ -107,10 +107,14 @@ body {
 
 .songNameLeft, .songArtistLeft, .popularityScoreLeft {
     text-align: left;
+    width: 50%;
+    overflow: hidden;
 }
 
 .songNameRight, .songArtistRight, .popularityScoreRight {
     text-align: right;
+    width: 50%;
+    overflow: hidden;
 }
 
 .popularityScore {
