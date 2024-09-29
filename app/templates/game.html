@@ -10,23 +10,34 @@
 <body>
     <div id="gameScreen">
         <div class="elements">
-            <div class="containerAlbum">
-                <div class="containerImages leftSide">
-                    <img class="albumCovers leftImg" id="leftAlbumCover" src="https://i.scdn.co/image/ab67616d0000b2733a2cc6c5cdd9f07a95efa51b">
-                </div>
-                <div class="containerImages rightSide">
-                    <img class="albumCovers rightImg" id="rightAlbumCover" src="/front-end/images/albumCover2.jpg">
-                </div>
-            </div>
 
             <div class="songInfo">
                 <div class="songName">
-                    <h1 class="songNameLeft">Song Name</h1>
-                    <h1 class="songNameRight">Song Name</h1>
+                    <h1 class="songNameLeft" id="songNameLeft">Song Name1</h1>
+                    <h1 class="songNameRight" id="songNameRight">Song Name2</h1>
                 </div>
                 <div class="songArtist">
-                    <h1 class="songArtistLeft">Song Artist</h1>
-                    <h1 class="songArtistRight">Song Artist</h1>
+                    <h1 class="songArtistLeft" id="songArtistLeft">Song Artist1</h1>
+                    <h1 class="songArtistRight" id="songArtistRight">Song Artist2</h1>
+                </div>
+                <div class="popularityScore">
+                    <h1 class="popularityScoreLeft">Popularity Score: <span id="popularityScoreLeft">0</span></h1>
+                    <h1 class="popularityScoreRight">Popularity Score: <span id="popularityScoreRight">0</span></h1>
+                </div>
+            </div>
+
+            <div class="gameQuestion">
+                <h2>Which is more popular?</h2>
+            </div>
+
+            <div class="containerAlbum">
+                <div class="leftHover" id="leftHover"></div>
+                <div class="containerImages leftSide">
+                    <img class="albumCovers leftImg" id="leftAlbumCover" src="https://i.scdn.co/image/ab67616d0000b2733a2cc6c5cdd9f07a95efa51b">
+                </div>
+                <div class="rightHover" id="rightHover"></div>
+                <div class="containerImages rightSide">
+                    <img class="albumCovers rightImg" id="rightAlbumCover" src="../static/styles/images/albumCover2.jpg">
                 </div>
             </div>
 
@@ -40,7 +51,9 @@
             </div>
 
             <div class="divider"></div>
-            <div class="circle"></div>
+            <div class="circle">
+                <h1><span id="levelCounter">1</span></h1>
+            </div>
             
         </div>
     </div>
