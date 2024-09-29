@@ -171,7 +171,6 @@ body {
 
 @-webkit-keyframes rotate {
     from {
-        
         transform: translateY(-50%) rotate(0deg);
     }
     to {
