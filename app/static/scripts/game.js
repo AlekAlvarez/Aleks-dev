@@ -9,36 +9,37 @@
 var gameOver = false //Is set to True when the user guesses wrong
 let counter = 0
 
-while (!gameOver) {
-gameOver = main();
-}
+main();
 
 async function main() {
-  const song1 = await getSong(); //Get song1 object
-  let song2 = await getSong();
-  while (song2.pop == song1.pop) {
-    song2 = await getSong();
-  }
-  updateScreen(song1, song2);
+  while (!gameOver) {
+    const song1 = await getSong(); //Get song1 object
+    let song2 = await getSong();
+    while (song2.pop == song1.pop) {
+      song2 = await getSong();
+    }
+    updateScreen(song1, song2);
+    console.log(song1.pop, song2.pop);
 
-  const event = await waitForClick();
-  const windowWidth = window.innerWidth;
-  const clickX = event.clientX;
-  let correct;
-  if (clickX < windowWidth / 2) {
-    console.log("LEFT")
-    correct = checkAnswer(song1, song2);
-} else {
-  console.log("RIGHT")
-    correct = checkAnswer(song2, song1);
-}
-  if (correct) {
-    console.log("YAY")
-    counter = counter + 1
-    return false
+    const event = await waitForClick();
+    const windowWidth = window.innerWidth;
+    const clickX = event.clientX;
+    let correct;
+    if (clickX < windowWidth / 2) {
+      console.log("LEFT")
+      correct = checkAnswer(song1, song2);
   } else {
-    alert('You lose')
-    return true
+    console.log("RIGHT")
+      correct = checkAnswer(song2, song1);
+  }
+    if (correct) {
+      console.log("YAY")
+      counter = counter + 1
+      gameOver = false
+    } else {
+      alert('You lose')
+      gameOver = true
+    }
   }
 
 
@@ -64,8 +65,6 @@ async function getSong() {
       }
       
       const json = await response.json();
-      console.log('This is json');
-      console.log(json);
       return json;
     } catch (error) {
       console.error(error.message);
@@ -75,7 +74,6 @@ async function getAPI () {
   const song = await getSong()
 }
 function updateScreen(song1, song2) {
-  console.log(song1);
   const albumCoverLeft = document.getElementById("leftAlbumCover");
   const songTitleLeft = document.getElementById("songNameLeft");
   const songAuthorLeft = document.getElementById("songArtistLeft");
@@ -102,16 +100,6 @@ function checkAnswer(userGuess, otherOption){
   }
   
 }
-function clickSide (event) {
-   // Determine if the click was on the left or right half
-   if (clickX < windowWidth / 2) {
-    leftChoice = true;
-} else {
-    console.log('Clicked on the right half');
-    rightChoce = false
-}
-}
-
 
 // Function that returns a Promise, resolving when a click event occurs
 function waitForClick() {
