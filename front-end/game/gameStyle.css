@@ -36,6 +36,7 @@ body {
     width: 15px;
     background-color: white;
     z-index: 1;
+    transform: translateX(-50%);
 }
 
 .circle {
@@ -51,47 +52,48 @@ body {
 }
 
 .scoreBox {
-    top:20px;
-    left: 20px;
-    position: absolute;
+    position: fixed;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 5px;
+    padding: 5px 10px;
     border: 2px solid white;
     border-radius: 5px;
     width: 250px;
     z-index: 2;
-    height: auto;
+}
+
+.high-score {
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;
+}
+
+.current-score {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 .scoreBox h2 {
     font-size: 30px;
+    margin: 0;
 }
+
 
 .albumCovers {
-    margin: 0;
-    height: 100vh; /* Full height of the viewport */
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    box-sizing: border-box;
+    position: absolute;
+    width: 375px;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border: 2px solid white;
+    border-radius: 50%;
 }
 
-.imageLeft, .imageRight {
-    width: 50%; /* Each box takes up half the width of the container */
-    height: 200px; /* Fixed height for the boxes */
-    display: flex;
-    justify-content: center; /* Center text horizontally */
-    align-items: center; /* Center text vertically */
-    border: 2px solid #000; /* Border around the boxes */
-    border-radius: 10px; /* Rounded corners */
+.leftImg {
+    left: 10%;
 }
 
-.imageLeft {
-    background-color: #4CAF50; /* Green background for left box */
-    color: white; /* White text color */
-}
-
-.imageRight {
-    background-color: #2196F3; /* Blue background for right box */
-    color: white; /* White text color */
+.rightImg {
+    right: 10%;
 }
