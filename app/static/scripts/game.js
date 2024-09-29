@@ -82,11 +82,13 @@ function updateScreen(song1, song2) {
   const songTitleRight = document.getElementById("songNameRight");
   const songAuthorRight = document.getElementById("songArtistRight");
   const currentScore=document.getElementById("current-score");
+  const currentRound = document.getElementById("levelCounter");
   
   songTitleLeft.textContent = song1.name;
   songAuthorLeft.innerHTML = song1.artist;
   albumCoverLeft.setAttribute("src", song1.cover);
   currentScore.innerText=counter;
+  levelCounter.innerText=counter+1;
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
   albumCoverRight.setAttribute("src", song2.cover);
