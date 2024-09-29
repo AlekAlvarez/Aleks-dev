@@ -61,7 +61,7 @@ function updateScreen(song1, song2) {
   const songTitleLeft = document.getElementById("songNameLeft");
   const songAuthorLeft = document.getElementById("songArtistLeft");
 
-  const albumCoverRight = document.getElementById("leftAlbumCover");
+  const albumCoverRight = document.getElementById("rightAlbumCover");
   const songTitleRight = document.getElementById("songNameRight");
   const songAuthorRight = document.getElementById("songArtistRight");
   
@@ -71,7 +71,9 @@ function updateScreen(song1, song2) {
   
   songTitleRight.innerHTML = song2.name;
   songAuthorRight.innerHTML = song2.artist;
-  albumCoverRight.src = song2.cover;
+  albumCoverRight.src = "https://i.scdn.co/image/ab67616d0000b27355e36b0dc5b0ef008fc85319";
+  albumCoverRight.setAttribute("src", song1.cover);
+  console.log(albumCoverRight.src)
 }
 
 function checkAnswer(userGuess, otherOption){
