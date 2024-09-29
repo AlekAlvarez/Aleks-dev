@@ -4,7 +4,6 @@ import urllib.parse
 from datetime import datetime, timedelta
 from flask import Flask, redirect, request, jsonify, session, render_template
 from random import randint, choice
-high_score=0
 
 app = Flask(__name__,template_folder="./templates")
 app.secret_key = "53d355f8-571a-490-a310-1f9579440851"
@@ -33,13 +32,10 @@ def login():
         'redirect_uri': REDIRECT_URL,
         'show_dialog': True #Delete after you know its working
     }
-    loggedIn=True
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
 
     return redirect(auth_url)
-    @app.route("/loggedin")
-    def loggedIn():
-        return loggedIn
+
 
 @app.route('/callback')
 def callback():
@@ -158,11 +154,6 @@ def college_songs():
     }
     print(s)
     return jsonify(s)
-@app.route("/put_high_score",methods=['POST'])
-def put_high_score():
-    high_score=requests.get_json().data["score"]
-@app.route("/get_high_score",methods=["GET"])
-def get_high():
-    return jsonify(high_score)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

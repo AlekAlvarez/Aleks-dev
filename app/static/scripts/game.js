@@ -8,16 +8,13 @@
 */
 var gameOver = false //Is set to True when the user guesses wrong
 let counter = 0
-let high=0;
 main();
 
 async function main() {
   while (!gameOver) {
     const song1 = await getSong(); //Get song1 object
     let song2 = await getSong();
-    high=await getHigh();
-    const high_score=document.getElementById("high-score")
-  high_score.innerText=high;
+
     while (song2.pop == song1.pop) {
       song2 = await getSong();
     }
@@ -52,17 +49,6 @@ async function main() {
     if (correct) {
       console.log("YAY")
       counter = counter + 1
-      if(counter>Number(Document.getElementById("high-score"))){
-        fetch('/submit', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({score: counter })
-      })
-      .then(response => response.text())
-      .then(data => console.log(data)); 
-      }
       gameOver = false
     } else {
       gameOver = true
@@ -97,23 +83,11 @@ async function getSong() {
     } catch (error) {
       console.error(error.message);
     }
-  }
-  async function getHigh(){
-    const url="http://localhost:5000/get_high_score"
-    try{
-      const response=await fetch(url);
-      if(!response.ok){
-        throw new Error(`Response status: ${response.status}`);
-      }
-      const json = await response.json();
-      return json;
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
+}
 async function getAPI () {
   const song = await getSong()
 }
+
 function updateScreen(song1, song2) {
   const albumCoverLeft = document.getElementById("leftAlbumCover");
   const songTitleLeft = document.getElementById("songNameLeft");
