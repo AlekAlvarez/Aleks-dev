@@ -1,3 +1,17 @@
+/*
+1. Request Songs
+2. Update UI
+3. Wait for User to click one
+4. Check if User is Right
+5. If Right give 2 new choices
+6. If wrong End Game
+*/
+
+
+
+
+
+
 function playGame () {
     //Startup Processes
     /*
