@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from flask import Flask, redirect, request, jsonify, session, render_template
 from random import randint, choice
 
-app = Flask(__name__,template_folder="../front-end/home")
+app = Flask(__name__,template_folder="./templates")
 app.secret_key = "53d355f8-571a-490-a310-1f9579440851"
 
 CLIENT_ID = 'd8d8018ff79545c3a7871ee450361b97'
@@ -20,7 +20,7 @@ API_BASE_URL = 'https://api.spotify.com/v1'
 @app.route('/')
 def index():
     #Flask load example
-    return render_template('/home.html')
+    return render_template('./home.html')
 
 @app.route('/login')
 def login():
