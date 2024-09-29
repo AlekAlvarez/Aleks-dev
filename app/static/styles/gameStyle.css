@@ -76,18 +76,26 @@ body {
 
 .songInfo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    padding: 30px;
+    padding: 10px;
     font-family: "Roboto Slab", serif;
     font-optical-sizing: auto;
 }
 
-.songName, .songArtist, .popularityScore {
+.songName, .popularityScore {
+    color: #a88532;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+}
+.songArtist {
+    color: black;
     display: flex;
     justify-content: space-between;
     width: 100%;
