@@ -117,6 +117,31 @@ def refresh_token():
         session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
 
         return redirect('/playlists')
+@app.route("/college-songs")
+def college_songs:
+    if 'access_token' not in session:
+        return redirect('/login')
     
+    if datetime.now().timestamp() > session['expires_at']:
+        return redirect('./refresh_token')
+    
+    headers = {
+        'Authorization': f"Bearer {session['access_token']}"
+    }
+    url = "https://api.spotify.com/v1/albums/0lI2kTmpOQzgIJzFu5MGel?si=Nm52RWuyQyCSsGfuI0Os8A/tracks"
+    result = requests.get(url, headers=headers)
+    json_result = result.json()
+    tracks=json_result["total"]
+    song=randint(tracks)
+    songs=json_result["items"][song]
+    s = {
+        'name': songs['name'],
+        'cover': songs["album"]['images'][0]['url'],
+        'artist': songs['artists'][0]['name'],
+        'pop': songs['popularity'],
+        'songClip': songs['preview_url']
+    }
+    print(s)
+    return jsonify(s)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
