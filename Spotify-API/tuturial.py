@@ -2,7 +2,7 @@ import requests
 import urllib.parse
 
 from datetime import datetime, timedelta
-from flask import Flask, redirect, request, jsonify, session
+from flask import Flask, redirect, request, jsonify, session, render_template
 from random import randint, choice
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ API_BASE_URL = 'https://api.spotify.com/v1'
 @app.route('/')
 def index():
     #Flask load example
-    return "Welcome to my Spotify App <a href='login'>Login with Spotify</a>"
+    return render_template('')
 
 @app.route('/login')
 def login():
