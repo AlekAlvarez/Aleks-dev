@@ -37,8 +37,8 @@ async function main() {
       counter = counter + 1
       gameOver = false
     } else {
-      alert('You lose')
       gameOver = true
+      window.location.href="./static/lose.html";
     }
   }
 
