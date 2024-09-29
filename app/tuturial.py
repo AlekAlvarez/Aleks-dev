@@ -33,7 +33,6 @@ def login():
         'redirect_uri': REDIRECT_URL,
         'show_dialog': True #Delete after you know its working
     }
-    loggedIn=True
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
 
     return redirect(auth_url)
@@ -71,7 +70,8 @@ def get_playlists():
         return redirect('./refresh_token')
     
     headers = {
-        'Authorization': f"Bearer {session['access_token']}"
+        'Authorization': f"Bearer {session['access_token']}",
+        "grant_type": 'client_credentials'
     }
 
     #Searches a random letter
@@ -83,6 +83,7 @@ def get_playlists():
 
     query_url = url + query
     result = requests.get(query_url, headers=headers)
+    print("HERE", result)
     json_result = result.json()
     #Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
     song_info = json_result["tracks"]["items"][0]
@@ -91,7 +92,7 @@ def get_playlists():
         'cover': song_info["album"]['images'][0]['url'],
         'artist': song_info['artists'][0]['name'],
         'pop': song_info['popularity'],
-        'songClip': song_info['preview_url']
+        'songClip': song_info['preview_url'],
     }
     print(song)
 
