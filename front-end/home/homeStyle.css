@@ -41,7 +41,7 @@ body {
 
 .containerHome h1 {
     font-size: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .containerHome p {
@@ -53,11 +53,15 @@ body {
     border: 10px solid black;
     border-radius: 20px;
     background-color: #036666;
+    font-family: "VT323", system-ui;
+    font-weight: 400;
+    font-style: normal;
     font-size: 50px;
     color: white;
     padding: 20px 30px;
     outline: none;
     margin-top: 25px;
+    animation-delay:5s
 }
 
 #hit{
