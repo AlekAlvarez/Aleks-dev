@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Guessing Game - Hit or Miss</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="homeStyle.css">
     <script src="home.js"></script>
 </head>
-
 <body>
     <div id="homeScreen">
         <div class="containerHome">
+            <video id = "backgroundVideo" autoplay loop muted>
+                <source src = "howdyhack-background.mp4">
+            </video>
             <h1>
-                <span class="hit" style="color: #218380">Hit</span> 
-                <span class="or">or</span>
-                <span class="miss" style="color: #8f2d56">Miss</span>
+                <span id = "hit" class="animate__animated animate__fadeInLeft" style="color: #218380">HIT</span>
+                <span id = "or" class="animate__animated animate__fadeInDown" style="color: #FFFFFF">or</span>
+                <span id = "miss" class="animate__animated animate__fadeInRight" style="color: #8f2d56">MISS</span>
             </h1>
-            <p>Test your skills and guess which Spotify track has more global streams!</p>
+            <p id="welcomeMessage" class="animate__animated animate__bounceInLeft" style="color: #e0d35a"><i>guess the bigger hit!</i></p>
             <button id="startButton">Play the Game!</button>
         </div>
     </div>
