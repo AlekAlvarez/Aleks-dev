@@ -50,9 +50,10 @@ body {
 }
 
 .containerHome button {
-    border: 10px solid black;
+    border: 10px;
+    border-color: white;
     border-radius: 20px;
-    background-color: #036666;
+    background-color: black;
     font-family: "VT323", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -61,7 +62,12 @@ body {
     padding: 20px 30px;
     outline: none;
     margin-top: 25px;
-    animation-delay:5s
+    animation-delay: 5s
+}
+
+button:hover {
+    background-color: white;
+    color: black;
 }
 
 #hit{
