@@ -55,11 +55,27 @@ body {
     position: absolute;
     width: 375px;
     height: auto;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 15%;
     z-index: 2;
     border: 2px solid white;
     border-radius: 50%;
+}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.albumCovers:hover {
+
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
 }
 
 .leftImg {
