@@ -7,9 +7,12 @@
     height:544px;
     border-radius: 50%;
 }
+html {
+    height: 100vh
+}
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #gameScreen {
@@ -76,18 +79,26 @@ body {
 
 .songInfo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    padding: 30px;
+    padding: 10px;
     font-family: "Roboto Slab", serif;
     font-optical-sizing: auto;
 }
 
-.songName, .songArtist, .popularityScore {
+.songName, .popularityScore {
+    color: #a88532;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+}
+.songArtist {
+    color: black;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -128,8 +139,7 @@ body {
 }
 
 /* Brighten and dim effect for the entire side */
-/*
-.leftHover:hover {
+/* .leftHover:hover {
     background-color: rgba(255, 255, 255, 0.2);
     filter: brightness(1.2);
 }
@@ -154,8 +164,8 @@ body {
 
 .rightHover {
     right: 0;
-}
-*/
+} */
+
 .albumCovers {
     position: absolute;
     width: 375px;
@@ -178,8 +188,8 @@ body {
     }
 }
 
-.leftHover:hover ~ .containerImages .leftImg,
-.rightHover:hover ~ .containerImages .rightImg,
+/* .leftHover:hover ~ .containerImages .leftImg,
+.rightHover:hover ~ .containerImages .rightImg, */
 .leftImg:hover,
 .rightImg:hover {
     animation: rotate 3s linear infinite;
