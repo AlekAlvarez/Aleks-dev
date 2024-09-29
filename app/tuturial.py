@@ -31,11 +31,10 @@ def login():
         'response_type': 'code',
         'scope': scope,
         'redirect_uri': REDIRECT_URL,
-        'show_dialog': False #Delete after you know its working
+        'show_dialog': True #Delete after you know its working
     }
 
     auth_url = f"{AUTH_URL}?{urllib.parse.urlencode(params)}"
-    print('hello world')
 
     return redirect(auth_url)
 
@@ -59,7 +58,7 @@ def callback():
         session['access_token'] = token_info['access_token']
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
-        return redirect('/playlists')
+        return redirect('/')
     
 @app.route('/playlists')
 def get_playlists():
