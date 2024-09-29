@@ -15,7 +15,7 @@ REDIRECT_URL = 'http://localhost:5000/callback'
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1'
-login=False
+
 @app.route('/')
 def index():
     #Flask load example
@@ -73,10 +73,7 @@ def get_playlists():
         'Authorization': f"Bearer {session['access_token']}"
     }
 
-    #response = requests.get(API_BASE_URL + 'me/playlists', headers=headers)
-    #playlists = response.json()
-
-        #Searches a random letter
+    #Searches a random letter
     search_term = choice('abcdefghijklmnopqrstuvwxyz')
     #This randomizes which search result we get
     offset = randint(0, 50)
@@ -89,7 +86,7 @@ def get_playlists():
     #Song info is a dictionary with the keys [album, artists, disc_number, duration_ms, explicit, external_ids, external_urls, href, id, is_local, name, popularity, preview_url, track_number, type, uri]
     song_info = json_result["tracks"]["items"][0]
     song = {
-         'name': song_info['name'],
+        'name': song_info['name'],
         'cover': song_info["album"]['images'][0]['url'],
         'artist': song_info['artists'][0]['name'],
         'pop': song_info['popularity'],

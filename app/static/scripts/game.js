@@ -7,8 +7,31 @@
 6. If wrong End Game
 */
 
+var gameOver = false //Is set to True when the user guesses wrong
+
+//while (!gameOver) {
+console.log('In the loop')
+let song1 = getSong(); //Get song1 object
+let song2 = getSong(); //Get song2 object
+console.log(song1);
+//Make sure that song1 and song2 don't have the same popularity score
+//while (song2.pop == song1.pop){
+//  song2 = getSong()
+//}
+//Displays the two songs
+updateScreen(song1, song2);
+//break;
+//}
+  //Await for User to click one
+  //On Click check if they chose right
+  //If they did, increase the counter and display correct score
+  //Do fancy animation?
+  //Continue into next loop
+  //If they did not then do something??
 
 
+
+//Returns an object with the keys name, cover, artist, pop, songclip
 async function getSong() {
     const url = "http://localhost:5000/playlists";
     try {
@@ -16,45 +39,42 @@ async function getSong() {
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
-  
+      
       const json = await response.json();
-      return json
+      console.log('This is json');
+      console.log(json);
+      return json;
     } catch (error) {
       console.error(error.message);
     }
   }
+
+function updateScreen(song1, song2) {
+  console.log(song1);
+  const albumCoverLeft = document.getElementById("leftAlbumCover");
+  const songTitleLeft = document.getElementById("songNameLeft");
+  const songAuthorLeft = document.getElementById("songArtistLeft");
+
+  const albumCoverRight = document.getElementById("leftAlbumCover");
+  const songTitleRight = document.getElementById("songNameLeft");
+  const songAuthorRight = document.getElementById("songArtistLeft");
+  songTitleLeft.innerHTML('Test');
+  albumCoverLeft.setAttribute("src", song1.cover);
+  albumCoverRight.setAttribute("src", song2.cover);
+
+  //songTitleLeft.innerHTML(song1.name)
+  songTitleRight.innerHTML(song2.name)
   
-
-
-async function playGame () {
-    //Startup Processes
-    /*
-    1. Get 2 songs (must have different popularity scores)
-    2. Update 
-    */
-   let gameOver = false
-   
-   let song1 = await getSong(); //Get song 2
-   let song2 = getSong(); //Get song 2
-
-   while(gameOver == false) {
-    
-   }
+  songAuthorLeft.innerHTML(song1.artist)
+  songAuthorLeft.innerHTML(song2.artist)
 }
 
-function getSong () {
+function checkAnswer(userGuess, otherOption){
+  //If the user is right
+  if (userGuess.pop > otherOption.pop) {
 
-}
-
-function updateSong (song) {
-    const albumCover = document.getElementById("leftAlbumCover");
-    const songTitle = '';
-    const songAuthor = '';
-
-    albumCover.setAttribute("src",song.cover);
-    
-}
-
-function updateImage2 () {
-    
+  } else {
+    gameOver = True
+  }
+  
 }
