@@ -118,7 +118,7 @@ def refresh_token():
 
         return redirect('/playlists')
 @app.route("/college-songs")
-def college_songs:
+def college_songs():
     if 'access_token' not in session:
         return redirect('/login')
     
