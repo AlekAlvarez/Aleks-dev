@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const startButton = document.getElementById("startButton"); // Use your button's ID
     startButton.addEventListener("click", function() {
         alert("1")
-        window.location.href=fetch('login')
+        window.location.href="/login"
         alert(window.location.href)
     });
 });
