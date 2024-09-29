@@ -7,25 +7,44 @@
 6. If wrong End Game
 */
 var gameOver = false //Is set to True when the user guesses wrong
+let counter = 0
 
-//while (!gameOver) {
-main()
+while (!gameOver) {
+gameOver = main();
+}
+
 async function main() {
   const song1 = await getSong(); //Get song1 object
-  const song2 = await getSong();
+  let song2 = await getSong();
+  while (song2.pop == song1.pop) {
+    song2 = await getSong();
+  }
   updateScreen(song1, song2);
+
+  const event = await waitForClick();
+  const windowWidth = window.innerWidth;
+  const clickX = event.clientX;
+  let correct;
+  if (clickX < windowWidth / 2) {
+    console.log("LEFT")
+    correct = checkAnswer(song1, song2);
+} else {
+  console.log("RIGHT")
+    correct = checkAnswer(song2, song1);
 }
-//let song1 = getSong(); //Get song1 object
-//let song2 = getSong(); //Get song2 object
-//console.log(song1);
-//Make sure that song1 and song2 don't have the same popularity score
-//while (song2.pop == song1.pop){
-//  song2 = getSong()
-//}
-//Displays the two songs
-//updateScreen(song1, song2);
-//break;
-//}
+  if (correct) {
+    console.log("YAY")
+    counter = counter + 1
+    return false
+  } else {
+    alert('You lose')
+    return true
+  }
+
+
+  
+
+}
   //Await for User to click one
   //On Click check if they chose right
   //If they did, increase the counter and display correct score
@@ -77,19 +96,29 @@ function updateScreen(song1, song2) {
 function checkAnswer(userGuess, otherOption){
   //If the user is right
   if (userGuess.pop > otherOption.pop) {
-
+    return true
   } else {
-    gameOver = True
+    return false
   }
   
 }
-leftChoice=false;
-rightChoice=false;
-left=document.getElementById("leftHover")
-right=document.getElementById("rightHover")
-left.addEventListener("click",()=>{
-    leftChoice=true;
-});
-right.addEventListener("click",()=>{
-    rightChoice=true;
-});
+function clickSide (event) {
+   // Determine if the click was on the left or right half
+   if (clickX < windowWidth / 2) {
+    leftChoice = true;
+} else {
+    console.log('Clicked on the right half');
+    rightChoce = false
+}
+}
+
+
+// Function that returns a Promise, resolving when a click event occurs
+function waitForClick() {
+  return new Promise((resolve) => {
+      document.addEventListener('click', (event) => {
+          // Resolve the promise with event information when clicked
+          resolve(event);
+      }, { once: true }); // once: true ensures the event listener is removed after one click
+  });
+}
